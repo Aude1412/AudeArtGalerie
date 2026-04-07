@@ -16,12 +16,29 @@
       font-family: Arial, sans-serif;
       flex-direction: column;
     }
-    .logo {
-      font-size: 3rem;
-      font-weight: bold;
-      color: #222;
-      margin-bottom: 30px;
-    }
+    /* Logo sur la page d'accueil */
+.logo {
+  font-size: 3rem;      /* taille par défaut */
+  font-weight: bold;
+  color: #222;
+  margin-bottom: 30px;
+  text-align: center;   /* centré */
+  word-wrap: break-word; /* permet de couper si l’écran est petit */
+}
+
+/* Logo responsive pour mobile */
+@media (max-width: 768px) {
+  .logo {
+    font-size: 2rem;    /* réduit la taille sur petits écrans */
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo {
+    font-size: 1.5rem;  /* encore plus petit sur très petit écran */
+  }
+}
     .loader {
       display: flex;
       gap: 8px;

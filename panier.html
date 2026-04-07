@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panier - &lt;AudeArtGalerie/&gt;</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav>
+    <a href="presentation.html">Accueil</a>
+    <a href="galerie.html">Galerie</a>
+    <a href="panier.html">Panier</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <!-- Contenu -->
+  <div class="container py-5">
+    <h1 class="mb-4">Votre panier 🛒</h1>
+    <div id="cart-container"></div>
+    <button class="btn btn-warning mt-3" id="clear-cart">Vider le panier</button>
+
+    <!-- Moyens de paiement stylés -->
+<div class="mt-5">
+  <h2>Paiement 💳</h2>
+  <p>Choisissez votre moyen de paiement :</p>
+  <div class="d-flex gap-4 flex-wrap">
+    <!-- Carte bancaire -->
+    <button class="btn btn-primary d-flex align-items-center gap-2" onclick="pay('Carte bancaire')">
+      <i class="bi bi-credit-card" style="font-size:1.5rem;"></i> Carte bancaire
+    </button>
+
+    <!-- PayPal -->
+    <button class="btn btn-info text-white d-flex align-items-center gap-2" onclick="pay('PayPal')">
+      <i class="bi bi-paypal" style="font-size:1.5rem;"></i> PayPal
+    </button>
+
+    <!-- Virement bancaire -->
+    <button class="btn btn-success d-flex align-items-center gap-2" onclick="pay('Virement bancaire')">
+      <i class="bi bi-bank2" style="font-size:1.5rem;"></i> Virement bancaire
+    </button>
+  </div>
+</div>
+
+<!-- Bootstrap Icons CDN -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+  <footer class="text-center py-3">
+    &copy; 2026 &lt;AudeArtGalerie/&gt; - Tous droits réservés
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    // Affichage du panier + vider
+    document.addEventListener("DOMContentLoaded", () => {
+      displayCart("cart-container");
+
+      document.getElementById("clear-cart").addEventListener("click", () => {
+        localStorage.removeItem("cart");
+        displayCart("cart-container");
+        alert("🗑️ Panier vidé !");
+      });
+    });
+
+    // Fonction de paiement simulé
+    function pay(method) {
+      const cart = JSON.parse(localStorage.getItem("cart")) || [];
+      if(cart.length === 0){
+        alert("⚠️ Votre panier est vide !");
+        return;
+      }
+      const total = cart.reduce((sum, item) => sum + item.price, 0);
+      alert(`💳 Paiement de ${total}€ via ${method} effectué !\nMerci pour votre achat !`);
+      localStorage.removeItem("cart");
+      displayCart("cart-container");
+    }
+  </script>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

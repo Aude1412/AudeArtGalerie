@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><AudeArtGalerie/></title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #fffaf0;
+      font-family: Arial, sans-serif;
+      flex-direction: column;
+    }
+    .logo {
+      font-size: 3rem;
+      font-weight: bold;
+      color: #222;
+      margin-bottom: 30px;
+    }
+    .loader {
+      display: flex;
+      gap: 8px;
+    }
+    .loader div {
+      width: 12px;
+      height: 12px;
+      background-color: #222;
+      border-radius: 50%;
+      animation: bounce 0.6s infinite alternate;
+    }
+    .loader div:nth-child(2) { animation-delay: 0.2s; }
+    .loader div:nth-child(3) { animation-delay: 0.4s; }
+    @keyframes bounce {
+      to { transform: translateY(-15px); opacity: 0.5; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="logo">&lt;AudeArtGalerie/&gt;</div>
+
+  <div class="loader">
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+
+  <script>
+    // Redirection automatique après 3 secondes
+    setTimeout(() => {
+      window.location.href = "presentation.html";
+    }, 3000); // 3000ms = 3 secondes
+  </script>
+
+</body>
+</html>

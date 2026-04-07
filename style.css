@@ -38,14 +38,16 @@ nav a:hover {
 =========================== */
 @media (max-width: 768px) {
   nav {
-    flex-direction: column;  /* liens en colonne */
-    align-items: center;
-    padding: 10px 0;
+    flex-direction: row;   /* garde les liens sur la même ligne */
+    flex-wrap: wrap;       /* permet aux liens de passer à la ligne si trop larges */
+    justify-content: center; /* centre les liens */
+    padding: 10px 5px;
   }
 
   nav a {
-    margin: 5px 0;       /* espace vertical entre les liens */
-    font-size: 1rem;
+    margin: 5px 10px;     /* espace entre les liens */
+    font-size: 0.95rem;   /* taille adaptée à l’écran */
+    text-align: center;
   }
 }
 

@@ -31,6 +31,7 @@ nav a:hover {
   text-decoration: underline;
 }
 
+
 /* CONTENU */
 .container {
   flex: 1;
@@ -178,5 +179,17 @@ footer {
 
   #cart-container button {
     align-self: flex-end;
+  }
+}
+
+/* Responsive mobile */
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;  /* colonne sur tablette et mobile */
+    align-items: center;
+    padding: 15px 10px;
+  }
+  nav a {
+    font-size: 1rem;         /* liens plus petits */
   }
 }

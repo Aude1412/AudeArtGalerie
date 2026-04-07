@@ -18,6 +18,7 @@ nav {
   padding: 15px 30px;
   display: flex;
   justify-content: space-around;
+  flex-wrap: wrap;   /* important pour que ça ne déborde pas */
   z-index: 1000;
 }
 
@@ -25,12 +26,28 @@ nav a {
   color: #fff;
   text-decoration: none;
   font-weight: bold;
+  margin: 0 10px;   /* espace entre les liens sur desktop */
 }
 
 nav a:hover {
   text-decoration: underline;
 }
 
+/* ===========================
+   RESPONSIVE MOBILE / TABLETTE
+=========================== */
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;  /* liens en colonne */
+    align-items: center;
+    padding: 10px 0;
+  }
+
+  nav a {
+    margin: 5px 0;       /* espace vertical entre les liens */
+    font-size: 1rem;
+  }
+}
 
 /* CONTENU */
 .container {
@@ -182,14 +199,3 @@ footer {
   }
 }
 
-/* Responsive mobile */
-@media (max-width: 768px) {
-  nav {
-    flex-direction: column;  /* colonne sur tablette et mobile */
-    align-items: center;
-    padding: 15px 10px;
-  }
-  nav a {
-    font-size: 1rem;         /* liens plus petits */
-  }
-}
